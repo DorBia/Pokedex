@@ -11,6 +11,10 @@ body {
   padding: 1rem;
 }
 
+.filtered {
+  display: none !important;
+}
+
 .card-container {
   margin-top: 1rem;
   display: grid;
