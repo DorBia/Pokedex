@@ -17,6 +17,35 @@
   <body>
     <h1>PokéDom- gotta code 'em all!</h1>
 
+    <section class="search-options">
+      <form class="search">
+        <input type="text" name="search" placeholder="Search here...">
+      </form>
+
+      <select class="type"> 
+        <option value="none" selected disabled hidden>Choose a type</option>
+        <option value="fire">Fire</option>
+        <option value="water">Water</option>
+        <option value="fighting">Fighting</option>
+        <option value="psychic">Psychic</option>
+        <option value="bug">Bug</option>
+        <option value="grass">Grass</option>
+        <option value="poison">Poison</option>
+        <option value="flying">Flying</option>
+        <option value="ground">Ground</option>
+        <option value="normal">Normal</option>
+      </select>
+
+      <select class="amount">
+        <option value="none" selected disabled hidden>Amount</option>
+        <option value="15">15</option>
+        <option value="30">30</option>
+        <option value="60">60</option>
+        <option value="90">90</option>
+        <option value="151">All</option>
+      </select>
+    </section>
+
     <main class="card-container"></main>
 
     <script src="./script.js" type="module"></script>

@@ -1,6 +1,9 @@
 import pokemonArray from "./data/pokemon.js";
 
 const cardContainer = document.querySelector(".card-container");
+const dropdown = document.querySelector(".type");
+const search = document.querySelector(".search input");
+const amount = document.querySelector(".amount");
 
 
 function titleCase(str) {
@@ -19,31 +22,34 @@ pokemonArray.forEach(pokemon => {
     `
 });
 
-
-const searchBox = document.createElement("div");
-searchBox.innerHTML += `
-    <form class="search">
-        <input type="text" name="search">
-    </form>
-`;
-
-document.body.prepend(searchBox);
-
-const search = document.querySelector(".search input")
-const cards = document.querySelectorAll(".card")
+const cards = document.querySelectorAll(".card");
 
 const filterPokemon = (inp) => {
     Array.from(cards)
-        .filter((pokemon) => !pokemon.textContent.toLowerCase().includes(inp))
-        .forEach((pokemon) => pokemon.classList.add("filtered"));
+        .filter(pokemon => !pokemon.textContent.toLowerCase().includes(inp))
+        .forEach(pokemon => pokemon.classList.add("filtered"));
 
-    Array.from(cardContainer.children)
-        .filter((pokemon) => pokemon.textContent.toLowerCase().includes(inp))
-        .forEach((pokemon) => pokemon.classList.remove("filtered"));
+    Array.from(cards)
+        .filter(pokemon => pokemon.textContent.toLowerCase().includes(inp))
+        .forEach(pokemon => pokemon.classList.remove("filtered"));
 }
 
 
 search.addEventListener("keyup", () => {
     const trimmed = search.value.trim().toLowerCase();
     filterPokemon(trimmed);
-})
+});
+
+dropdown.addEventListener("change", () => {
+    const option = dropdown.value.toLowerCase();
+    console.log(option);
+    filterPokemon(option);
+});
+
+amount.addEventListener("change", () => {
+    const toShow = Array.from(cards).slice(0, amount.value);
+    const toFilterOut = Array.from(cards).slice(amount.value);
+    
+    toShow.forEach(pokemon => pokemon.classList.remove("filtered"));
+    toFilterOut.forEach(pokemon => pokemon.classList.add("filtered"));
+});
