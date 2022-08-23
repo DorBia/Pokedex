@@ -13,7 +13,7 @@ pokemonArray.forEach(pokemon => {
         <img class="card__image" src=${pokemon.sprite}>
         <section class="card__content">
             <p class="card__heading">${titleCase(pokemon.name)}<p>
-            <p class="card__text">${titleCase(pokemon.name)} (#${pokemon.id}) is a ${pokemon.types} type pokemon.</p>
+            <p class="card__text">${titleCase(pokemon.name)} (#${pokemon.id}) is a ${pokemon.types.join(" & ")} type pokemon.</p>
         </section>
     </div>
     `
